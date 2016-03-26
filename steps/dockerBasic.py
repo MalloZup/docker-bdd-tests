@@ -11,4 +11,4 @@ class DockerDaemon():
 	def pullImage(self, image):
 	     return  subprocess.check_output("docker pull {}".format(image), shell=True)
 	def run(self, cmd, image):
-	     subprocess.check_output("docker run -i -t {} {}".format(cmd, image), shell=True)
+	     subprocess.check_output("docker run -i -t {} {}".format(image, cmd), shell=True)
