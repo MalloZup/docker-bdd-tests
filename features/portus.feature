@@ -1,4 +1,4 @@
-Feature: docker daemon basic
+Feature: portus testing
 
  Scenario: pull opensuse
      Given docker daemon running
