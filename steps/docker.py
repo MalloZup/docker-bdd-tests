@@ -1,5 +1,6 @@
 from behave import *
 from  dockerBasic import *
+import re
 
 # scenario pull image (for moment opensuse)
 
