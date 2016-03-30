@@ -8,7 +8,7 @@ test = DockerDaemon()
 @given('docker daemon running')
 def step_impl(context):
 	test.statusDaemon()
-@when('pull image {images}')
+@when('we pull image {images}')
 def step_impl(context, images):
     context.response = test.pullImage(images) 
 @then('we got {images} dockerized')

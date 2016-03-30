@@ -2,7 +2,7 @@ Feature: docker daemon basic
 
  Scenario Outline: pull opensuse
      Given docker daemon running
-     When pull image <images>
+     When we pull image <images>
      Then we got <images> dockerized 
       
      Examples: Pull-image
@@ -12,7 +12,8 @@ Feature: docker daemon basic
 	| mongo		|
 	| busybox	| 
 	| httpd	        | 
-# Scenario: run commands on container
- #   Given docker daemon running
- #   when  run command with docker
- #   then  command executed on container
+
+ Scenario: run commands on container
+     Given docker daemon running
+     when  run command with docker
+     then  command executed on container
