@@ -4,16 +4,24 @@ Feature: docker daemon basic
      Given docker daemon running
      When we pull image <images>
      Then we got <images> dockerized 
-      
-     Examples: Pull-image
+
+     Examples: docker-images
 	| images	| 
-	
 	| opensuse      | 
 	| mongo		|
 	| busybox	| 
 	| httpd	        | 
 
-# Scenario: run commands on container
-#     Given docker daemon running
-#     when  run command with docker
-#     then  command executed on container
+
+
+ Scenario Outline: run commands on container
+     Given docker daemon running
+     When  run <cmd> in <images>
+     Then   command executed on container
+
+     Examples: images command
+	| images	|  cmd 		 |
+	| opensuse      |  uptime    	 |
+	| mongo		|  uptime    	 |  # this should fail
+	| busybox	|  ls   	 |
+	| httpd	        |  uptime        |

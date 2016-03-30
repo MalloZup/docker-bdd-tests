@@ -17,9 +17,9 @@ def assert_image(context, images):
 
 # scenario run commands on container
  
-@when('run command with docker')
-def step_impl(context):
-    context.response = test.run("opensuse","ls")
+@when('run {cmd} in {images}')
+def run_command(context, cmd, images):
+    context.response = test.run(images, cmd)
     print (context.response)
 @then('command executed on container')
 def step_impl(context):
