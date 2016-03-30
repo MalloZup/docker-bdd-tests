@@ -13,7 +13,7 @@ Feature: docker daemon basic
 	| busybox	| 
 	| httpd	        | 
 
- Scenario: run commands on container
-     Given docker daemon running
-     when  run command with docker
-     then  command executed on container
+# Scenario: run commands on container
+#     Given docker daemon running
+#     when  run command with docker
+#     then  command executed on container

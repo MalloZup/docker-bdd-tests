@@ -6,14 +6,14 @@ import re
 
 test = DockerDaemon()
 @given('docker daemon running')
-def step_impl(context):
+def daemon_run(context):
 	test.statusDaemon()
 @when('we pull image {images}')
-def step_impl(context, images):
+def pull_image(context, images):
     context.response = test.pullImage(images) 
 @then('we got {images} dockerized')
-def step_impl(context, images):
-    assert re.match(r'.*Image is up to date for {}:latest.*'.format(images) , str(context.response)), "not got opensuse"
+def assert_image(context, images):
+    assert re.match(r'.*Image is up to date for {}:latest.*'.format(images) , str(context.response)), "not got right image"
 
 # scenario run commands on container
  
