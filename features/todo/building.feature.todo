@@ -1,0 +1,7 @@
+Feature: docker daemon basic
+
+ Scenario: pull opensuse
+    Given docker daemon running
+    when  we build a big-number of images
+    then  we have all images builded.
+

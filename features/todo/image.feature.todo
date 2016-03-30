@@ -1,0 +1,12 @@
+Feature: docker image testing
+
+ Scenario: no port open in default images
+     Given opensuse images
+     when running a container
+     then no ports is open
+
+ Scenario: web-server
+    Given opensuse base image
+    when  dockerfile make webserver
+    then  webserver running with port 80
+
