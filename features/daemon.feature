@@ -1,6 +1,6 @@
 Feature: docker daemon basic
 
- Scenario Outline: pull opensuse
+ Scenario Outline: pull some images
      Given docker daemon running
      When we pull image <images>
      Then we got <images> dockerized 
