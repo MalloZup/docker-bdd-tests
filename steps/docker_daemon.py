@@ -13,7 +13,7 @@ def pull_image(context, images):
     context.response = test.pullImage(images) 
 @then('we got {images} dockerized')
 def assert_image(context, images):
-    assert re.match(r'.*Image is up to date for {}:latest.*'.format(images) , str(context.response)), "not got right image"
+  assert re.match(r'.*Downloaded newer image for {}:latest.*'.format(images) , str(context.response)), "not got right image"
 
 # scenario run commands on container
  
