@@ -19,9 +19,9 @@ Feature: docker daemon basic
      When  run <cmd> in <images>
      Then   command executed on container
 
+# | mongo		|  uptime    	 |  # this should fail
      Examples: images command
 	| images	|  cmd 		 |
 	| opensuse      |  uptime    	 |
-	| mongo		|  uptime    	 |  # this should fail
 	| busybox	|  ls   	 |
 	| httpd	        |  uptime        |
