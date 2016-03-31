@@ -15,7 +15,7 @@ def pull_image(context, images):
 def assert_image(context, images):
   if (re.search(r'.*Downloaded newer image for {}:latest.*'.format(images) , str(context.response)) == None ):
         raise Exception("GOT: {} . EXPECTED \".*Downloaded newer image for <image>:latest.*\" FAIL".format(str(context.response)))
-
+  print (str(context.response))
 # scenario run commands on container
  
 @when('run {cmd} in {images}')
