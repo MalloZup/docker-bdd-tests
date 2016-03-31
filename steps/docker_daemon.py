@@ -13,7 +13,8 @@ def pull_image(context, images):
     context.response = test.pullImage(images) 
 @then('we got {images} dockerized')
 def assert_image(context, images):
-  assert re.match(r'.*Downloaded newer image for {}:latest.*'.format(images) , str(context.response)), "not got right image"
+  if (not re.match(r'.*Downloaded newer image for {}:latest.*'.format(images) , str(context.response))):
+        raise Exception("GOT: {} . EXPECTED \"*Downloaded newer image for <image>:latest.*\" FAIL".format(str(context.response)))
 
 # scenario run commands on container
  
