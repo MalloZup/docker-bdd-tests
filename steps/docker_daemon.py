@@ -5,6 +5,8 @@ import re
 # scenario pull image (for moment opensuse)
 
 test = DockerDaemon()
+sut = Sut()
+
 @given('docker daemon running')
 def daemon_run(context):
 	test.statusDaemon()
