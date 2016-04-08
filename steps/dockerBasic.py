@@ -17,5 +17,4 @@ class Sut():
         ''' function for sut '''
         def run_sut(self, cmd):
                 subprocess.check_output(cmd, shell=True)
-~                                                                                                                                                 
-~                                                                 
+
