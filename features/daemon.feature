@@ -12,16 +12,19 @@ Feature: docker daemon basic
 	| busybox	| 
 	| httpd	        | 
 
-
-
  Scenario Outline: run commands on container
      Given docker daemon running
      When  run <cmd> in <images>
      Then   command executed on container
 
-# | mongo		|  uptime    	 |  # this should fail
      Examples: images command
 	| images	|  cmd 		 |
 	| opensuse      |  uptime    	 |
 	| busybox	|  ls   	 |
 	| httpd	        |  uptime        |
+
+#bsc 963037
+Scenario: Docker container should log into systemd log journal
+     Given docker daemon running
+     When  run <cmd> in <images>
+     Then  logs are in systemd
