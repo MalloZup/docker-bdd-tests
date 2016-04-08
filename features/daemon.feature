@@ -24,7 +24,12 @@ Feature: docker daemon basic
 	| httpd	        |  uptime        |
 
 #bsc 963037
-Scenario: Docker container should log into systemd log journal
+Scenario Outline: Docker container should log into systemd log journal
      Given docker daemon running
      When  run <cmd> in <images>
      Then  logs are in systemd
+
+     Examples: images journald log
+        | images        |  cmd           |
+        | opensuse      |  whoami        |
+
