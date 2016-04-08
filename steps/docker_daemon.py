@@ -28,7 +28,7 @@ def step_impl(context):
 
 # logging
 
-@then(' logs are in systemd')
+@then('logs are in systemd')
 def check_journal_log(context):
   sut.run_sut("docker daemon --log-driver=journald &")
   journal_docker =  sut.run_sut("journalctl -u docker")

@@ -15,7 +15,7 @@ Feature: docker daemon basic
  Scenario Outline: run commands on container
      Given docker daemon running
      When  run <cmd> in <images>
-     Then   command executed on container
+     Then  command executed on container
 
      Examples: images command
 	| images	|  cmd 		 |
