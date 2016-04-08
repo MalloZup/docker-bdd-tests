@@ -7,6 +7,7 @@ import re
 test = DockerDaemon()
 sut = Sut()
 
+### scenario pulling images ###
 @given('docker daemon running')
 def daemon_run(context):
 	test.statusDaemon()
@@ -18,7 +19,9 @@ def assert_image(context, images):
   if (re.search(r'.*Downloaded newer image for {}:latest.*'.format(images) , str(context.response)) == None ):
         raise Exception("GOT: {} . EXPECTED \".*Downloaded newer image for <image>:latest.*\" FAIL".format(str(context.response)))
   print (str(context.response))
-# scenario run commands on container
+
+
+# scenario run commands on container ###
  
 @when('run {cmd} in {images}')
 def run_command(context, cmd, images):
@@ -28,7 +31,7 @@ def run_command(context, cmd, images):
 def step_impl(context):
 	pass
 
-# logging
+### logging bug ###
 
 @then('logs are in systemd')
 def check_journal_log(context):
