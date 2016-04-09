@@ -23,13 +23,3 @@ Feature: docker daemon basic
 	| busybox	|  ls   	 |
 	| httpd	        |  uptime        |
 
-#bsc 963037
-Scenario Outline: Docker container should log into systemd log journal
-     Given docker daemon running
-     When  journald enabled, run <cmd> with <images> 
-     Then  logs are in systemd
-
-     Examples: images journald log
-        | images        |  cmd          		       |
-        | opensuse      |  whoami   			       |
-
