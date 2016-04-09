@@ -32,6 +32,12 @@ def step_impl(context):
 	pass
 
 ### logging bug ###
+@when('journald enabled, run {cmd} with {images}')
+def run_command(context, cmd, images):
+    context.response = test.run(cmd, images)
+    print (context.response)
+
+
 
 @then('logs are in systemd')
 def check_journal_log(context):

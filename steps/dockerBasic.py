@@ -10,8 +10,8 @@ class DockerDaemon():
                 subprocess.check_output("systemctl status docker", shell=True)
         def pullImage(self, image):
              return  subprocess.check_output("docker pull {}".format(image), shell=True)
-        def run(self, cmd, image):
-             print ( subprocess.check_output("docker run {} {}".format(cmd, image), shell=True) )
+        def run(self, image, cmd):
+             print ( subprocess.check_output("docker run {} {}".format(image, cmd), shell=True) )
 
 class Sut():
         ''' function for sut '''

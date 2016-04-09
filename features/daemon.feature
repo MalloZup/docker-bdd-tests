@@ -14,7 +14,7 @@ Feature: docker daemon basic
 
  Scenario Outline: run commands on container
      Given docker daemon running
-     When  run <cmd> in <images>
+     When  run <cmd> in <images> 
      Then  command executed on container
 
      Examples: images command
@@ -26,10 +26,10 @@ Feature: docker daemon basic
 #bsc 963037
 Scenario Outline: Docker container should log into systemd log journal
      Given docker daemon running
-     When  run <cmd> in <images>
+     When  journald enabled, run <cmd> with <images> 
      Then  logs are in systemd
 
      Examples: images journald log
         | images        |  cmd          		       |
-        | opensuse      |  --log-driver=journald whoami        |
+        | opensuse      |  whoami   			       |
 
