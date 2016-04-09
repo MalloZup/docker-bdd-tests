@@ -34,15 +34,21 @@ def step_impl(context):
 ### logging bug ###
 @when('journald enabled, run {cmd} with {images}')
 def run_command(context, cmd, images):
-    context.response = test.run(cmd, images)
+    flag_image = "--log-driver=journald " + images
+    test.run(flag_image, cmd)
+    context.response =  sut.run_sut("journalctl --since \"6 min ago\" -u docker --no-pager")
     print (context.response)
 
 
 
-@then('logs are in systemd')
-def check_journal_log(context):
+#@then('logs are in systemd')
+#def check_journal_log(context):
 #  sut.run_sut("docker daemon --log-driver=journald &")
-  journal_docker =  sut.run_sut("journalctl -u docker --no-pager")
-  if (re.search(r'.*docker.*root'.format(images) , str(journal_docker)) == None ):
-        raise Exception("FAIL to write in journal log, with Docker Container")
+  # journalctl --since "12 min ago" -u docker
+#  print (context.response)
+#  journal_docker =  sut.run_sut("journalctl -u docker")
+#  print (journal_docker)
+#  if (re.search(r'.*docker.*root', str(journal_docker)) == None ):
+#     print (str(journal_docker))
+#     raise Exception("FAIL to write in journal log, with Docker Container")
 
