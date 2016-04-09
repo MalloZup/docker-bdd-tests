@@ -30,6 +30,6 @@ Scenario Outline: Docker container should log into systemd log journal
      Then  logs are in systemd
 
      Examples: images journald log
-        | images        |  cmd           |
-        | opensuse      |  whoami        |
+        | images        |  cmd          		       |
+        | opensuse      |  --log-driver=journald whoami        |
 

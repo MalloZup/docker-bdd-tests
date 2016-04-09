@@ -1,0 +1,4 @@
+#https://gitlab.suse.de/cyphar/docker-testing/blob/master/spec/support/basic_image_operations_shared.rb
+
+docker run --name test_container #{image} echo hello world
+docker rm test_container

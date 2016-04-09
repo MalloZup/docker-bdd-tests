@@ -35,7 +35,7 @@ def step_impl(context):
 
 @then('logs are in systemd')
 def check_journal_log(context):
-  sut.run_sut("docker daemon --log-driver=journald &")
+#  sut.run_sut("docker daemon --log-driver=journald &")
   journal_docker =  sut.run_sut("journalctl -u docker --no-pager")
   if (re.search(r'.*docker.*root'.format(images) , str(journal_docker)) == None ):
         raise Exception("FAIL to write in journal log, with Docker Container")
