@@ -30,11 +30,3 @@ def run_command(context, cmd, images):
 @then('command executed on container')
 def step_impl(context):
 	pass
-
-### logging bug ###
-@when('journald enabled, run {cmd} with {images}')
-def run_command(context, cmd, images):
-    flag_image = "--log-driver=journald " + images
-    test.run(flag_image, cmd)
-    context.response =  sut.run_sut("journalctl --since \"6 min ago\" -u docker --no-pager")
-    print (context.response)
